@@ -1,16 +1,17 @@
 import styles from "./styles.module.css";
 
-export default function Todo() {
+export default function Todo({ item, onDelete }) {
   return (
     <div className={styles["todo_container"]}>
-      <form className={styles["todo_form"]}>
-        <input type="text"></input>
-        <button>Submit</button>
-      </form>
-
       <div className={styles["todo_list_container"]}>
         <ul className={styles["todo_list"]}>
-          <li className={styles["todo_list_item"]}>To-do item</li>
+          <li className={styles["todo_list_item"]}>
+            {item}
+            <span>
+              <button>Edit</button>{" "}
+              <button onClick={() => onDelete()}>X</button>
+            </span>
+          </li>
         </ul>
       </div>
     </div>
